@@ -6,7 +6,13 @@ export class AntsApi {
     try {
       const response = await api.get("ants")
 
-      return response.data.ants
+      const ants = response.data.ants.map((ant: IAnt) => ({
+        ...ant,
+        status: "not yet run",
+        probability: 0
+      }))
+
+      return ants
     } catch (error) {
       throw error
     }

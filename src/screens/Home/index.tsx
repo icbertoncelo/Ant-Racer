@@ -11,10 +11,8 @@ export function Home() {
         autoPlay
         source={require('../../assets/ant.json')}
       />
-      <SearchDataButton>
-        <SearchDataButtonText 
-          onPress={() =>  navigate("racer")}
-        >
+      <SearchDataButton onPress={() =>  navigate("racer")}>
+        <SearchDataButtonText>
           Buscar Dados
         </SearchDataButtonText>
       </SearchDataButton>

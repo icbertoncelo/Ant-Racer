@@ -41,7 +41,16 @@ export const RaceStatusTitle = styled.Text`
   color: ${props => props.theme.COLORS.GRAY_100};
   margin-bottom: 4px;
 `
+const STATUS_COLORS = {
+  'not yet run': 'GRAY_100',
+  'in progress': 'RED',
+  'all calculated': 'GREEN_500',
+} as const
 
-export const RaceStatus = styled.Text`
-  color: ${props => props.theme.COLORS.GRAY_100};
+interface IRaceStatus {
+  color: keyof typeof STATUS_COLORS
+}
+
+export const RaceStatus = styled.Text<IRaceStatus>`
+  color: ${props => props.theme.COLORS[STATUS_COLORS[props.color]]};
 `
