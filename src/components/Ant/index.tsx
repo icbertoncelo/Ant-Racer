@@ -1,5 +1,5 @@
 import { IAnt } from "@utils/interfaces/ants";
-import { AntContainer, AntData, AntName, AntStatus, AntSubtitle } from "./styles";
+import { AntColor, AntContainer, AntData, AntHeader, AntName, AntStatus, AntSubtitle } from "./styles";
 
 interface IAntProps {
   data: IAnt
@@ -8,7 +8,10 @@ interface IAntProps {
 export function Ant({ data }: IAntProps) {
   return (
     <AntContainer>
-      <AntName>{data.name}</AntName>
+      <AntHeader>
+        <AntName>{data.name}</AntName>
+        <AntColor color={data.color}/>
+      </AntHeader>
       <AntData>
         <AntSubtitle>Length: {data.length}</AntSubtitle>
         <AntSubtitle>weight: {data.weight}</AntSubtitle>

@@ -7,12 +7,34 @@ export const AntContainer = styled.View`
   padding: 4px;
 `
 
+export const AntHeader = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+const ANT_COLORS = {
+  'BLACK': 'BLACK',
+  'RED': 'RED_DARK',
+  'SILVER': 'GRAY_300',
+} as const
+
+interface IAntColor {
+  color: keyof typeof ANT_COLORS
+}
+
+export const AntColor = styled.View<IAntColor>`
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: ${props => props.theme.COLORS[ANT_COLORS[props.color]]};
+`
+
 export const AntName = styled.Text`
   font-size: ${props => props.theme.FONT_SIZE.MD};
 `
 
 export const AntData = styled.View`
-  margin-top: auto;
+  margin-top: 2px;
   flex-direction: row;
   justify-content: space-between;
 `
