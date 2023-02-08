@@ -1,6 +1,8 @@
-import { HomeContainer, SearchDataButton, SearchDataButtonText } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
+import { MainButton } from '@components/MainButton';
+
+import { HomeContainer } from './styles';
 
 export function Home() {
   const { navigate } = useNavigation()
@@ -11,11 +13,9 @@ export function Home() {
         autoPlay
         source={require('../../assets/ant.json')}
       />
-      <SearchDataButton onPress={() =>  navigate("racer")}>
-        <SearchDataButtonText>
-          Buscar Dados
-        </SearchDataButtonText>
-      </SearchDataButton>
+      <MainButton onPress={() =>  navigate("racer")}>
+        Buscar Dados
+      </MainButton>
     </HomeContainer>
   );
 }

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { AntsApi } from '@infra/ants';
-import { RaceContainer, RaceStatus, RaceStatusContainer, RaceStatusTitle, SearchDataButton, SearchDataButtonText } from './styles';
-import { AntStatusTypes, IAnt, RaceStatusTypes } from '@utils/interfaces/ants';
 import { ActivityIndicator, FlatList, Text } from 'react-native';
+import { AntsApi } from '@infra/ants';
+import { RaceContainer, RaceStatus, RaceStatusContainer, RaceStatusTitle } from './styles';
+import { AntStatusTypes, IAnt, RaceStatusTypes } from '@utils/interfaces/ants';
 import { Ant } from '@components/Ant';
+import { MainButton } from '@components/MainButton';
 
 
 export function Racer() {
@@ -96,13 +97,12 @@ export function Racer() {
           ListEmptyComponent={() => <Text>No Ants</Text>}
         />
       )}
-      <SearchDataButton 
+      <MainButton
+          disabled={isLoading || raceStatus === 'in progress'}
           onPress={handleStartRace}
         >
-        <SearchDataButtonText>
           Start
-        </SearchDataButtonText>
-      </SearchDataButton>
+      </MainButton>
     </RaceContainer>
   );
 }
