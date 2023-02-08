@@ -6,7 +6,6 @@ import { AntStatusTypes, IAnt, RaceStatusTypes } from '@utils/interfaces/ants';
 import { Ant } from '@components/Ant';
 import { MainButton } from '@components/MainButton';
 
-
 export function Racer() {
   const [ants, setAnts] = useState<IAnt[]>([])
   const [isLoading, setIsLoading] = useState(false)
